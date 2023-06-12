@@ -27,7 +27,8 @@ function moveDown(currMove) {
 function moveLeft(currMove) {
   let inProgress = true;
   const leftEdge = board.offsetLeft + 18;
-  if (pacman.offsetLeft > leftEdge) {
+  const { x: pacX } = pacman.getBoundingClientRect();
+  if (pacX > leftEdge) {
     pacman.style.left = +pacman.style.left.replace(/\D/g, "") - 10 + "px";
   } else {
     cancelAnimationFrame(currMove);
@@ -39,7 +40,8 @@ function moveLeft(currMove) {
 function moveRight(currMove) {
   let inProgress = true;
   const rightEdge = board.clientWidth + board.offsetLeft - 70;
-  if (pacman.offsetLeft < rightEdge) {
+  const { x: pacX } = pacman.getBoundingClientRect();
+  if (pacX < rightEdge) {
     pacman.style.left = +pacman.style.left.replace(/\D/g, "") + 10 + "px";
   } else {
     cancelAnimationFrame(currMove);
