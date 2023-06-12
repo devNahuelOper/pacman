@@ -1,0 +1,17 @@
+{
+  "name": "pacman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "dependencies": {
+    "parcel": "^2.9.2",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.2",
+    "sass": "^1.63.3"
+  }
+}
