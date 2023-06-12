@@ -1,5 +1,7 @@
 @import "./styles/base.scss";
 
+$border-color: #3535c7;
+
 body {
   height: 100vh;
 }
@@ -8,10 +10,11 @@ body {
   width: 60%;
   height: 98%;
   margin: 1em auto;
-  border: 2px solid;
+  border: 8px double $border-color;
   border-radius: 2em;
   box-sizing: border-box;
   padding: 1em;
+  background: #000;
 }
 
 .pacman {
@@ -48,7 +51,6 @@ body {
 
 .mouth {
   background: #000;
-  background: #fff;
   position: absolute;
   width: 100%;
   height: 100%;
