@@ -1,10 +1,14 @@
 const pacman = document.querySelector(".pacman");
 const board = document.querySelector(".board");
 
-function noWallClose(x, y) {
-  const indexes = Array.from(Array(pacman.clientWidth), (n, idx) => idx);
-  const match = indexes.find(idx => {
-    const closest = document.elementFromPoint(x + idx, y);
+function noWallClose(x, y, type = "vertical") {
+  const indexes = Array.from(
+    Array(Math.round(pacman.clientWidth * 0.75)),
+    (n, idx) => idx
+  );
+  const match = indexes.find((idx) => {
+    const args = type === "vertical" ? [x + idx, y] : [x, y + idx];
+    const closest = document.elementFromPoint(...args);
     return closest?.classList.contains("wall");
   });
   return Boolean(match == null);
@@ -25,9 +29,9 @@ function moveUp(currMove) {
 
 function moveDown(currMove) {
   let inProgress = true;
-  const { x: pacX, y: pacY } = pacman.getBoundingClientRect();
-  const bottomEdge = board.clientHeight - 60 - 6;
-  if (pacman.offsetTop < bottomEdge) {
+  const { x: pacX, bottom: pacY } = pacman.getBoundingClientRect();
+  const bottomEdge = board.clientHeight - pacman.clientHeight - 6;
+  if (pacman.offsetTop < bottomEdge && noWallClose(pacX, pacY + 15)) {
     pacman.style.top = +pacman.style.top.replace(/\D/g, "") + 10 + "px";
   } else {
     cancelAnimationFrame(currMove);
@@ -39,9 +43,15 @@ function moveDown(currMove) {
 function moveLeft(currMove) {
   let inProgress = true;
   const leftEdge = board.offsetLeft + 18;
-  const { x: pacX, y: pacY } = pacman.getBoundingClientRect();
-  const closest = document.elementFromPoint(pacX - 16, pacY + 30);
-  if (pacX > leftEdge && !closest?.classList.contains("wall")) {
+  const {
+    x: pacX,
+    y: pacY,
+    bottom: pacBottom,
+  } = pacman.getBoundingClientRect();
+  // const closest = document.elementFromPoint(pacX - 28, pacY - 2);
+  const keepMoving =
+    noWallClose(pacX - 28, pacY - 2) && noWallClose(pacX - 28, pacBottom + 2);
+  if (pacX > leftEdge && keepMoving) {
     pacman.style.left = +pacman.style.left.replace(/\D/g, "") - 10 + "px";
   } else {
     cancelAnimationFrame(currMove);
@@ -52,12 +62,19 @@ function moveLeft(currMove) {
 
 function moveRight(currMove) {
   let inProgress = true;
-  const rightEdge = board.clientWidth + board.offsetLeft - 70;
-  const { x: pacX, y: pacY } = pacman.getBoundingClientRect();
-  const pacXEdge = pacX + 59;
-  const pacYEdge = pacY + 30;
-  const closest = document.elementFromPoint(pacXEdge + 10, pacYEdge);
-  if (pacX < rightEdge && !closest?.classList.contains("wall")) {
+  const rightEdge =
+    board.clientWidth + board.offsetLeft - (pacman.clientWidth + 10);
+  const {
+    x: pacX,
+    y: pacY,
+    right: pacRight,
+    bottom: pacBottom,
+  } = pacman.getBoundingClientRect();
+  // const closest = document.elementFromPoint(pacRight + 28, pacY - 2);
+  const keepMoving =
+    noWallClose(pacRight, pacY - 2) &&
+    noWallClose(pacRight, pacBottom + 2);
+  if (pacX < rightEdge && keepMoving) {
     pacman.style.left = +pacman.style.left.replace(/\D/g, "") + 10 + "px";
   } else {
     cancelAnimationFrame(currMove);

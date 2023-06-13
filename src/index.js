@@ -1,12 +1,15 @@
 import { moveUp, moveDown, moveLeft, moveRight } from "./js/move.js";
 
 document.addEventListener("DOMContentLoaded", ready);
+window.point = (x, y) => document.elementFromPoint(x, y);
 
 let currMove, currDir;
 
 function ready() {
   const pacman = document.querySelector(".pacman");
   const board = document.querySelector(".board");
+
+  addEventListener("click", (e) => console.log(e.clientX, e.clientY));
 
   document.addEventListener("keydown", (e) => {
     if (e.key.includes("Arrow")) {

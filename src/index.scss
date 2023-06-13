@@ -1,6 +1,7 @@
 @import "./styles/base.scss";
 
 $border-color: #3535c7;
+$pac-dimensions: 50;
 
 body {
   height: 100vh;
@@ -10,7 +11,7 @@ body {
   width: 60%;
   height: 98%;
   margin: 1em auto;
-  border-radius: 2em;
+  border-radius: 1.25em;
   box-sizing: border-box;
   padding: 1em;
   background: #000;
@@ -20,27 +21,51 @@ body {
   box-shadow: 0px 0px 0px 4px inset $border-color, 0px 0px 0px 4px $border-color;
 }
 
-#wall1 {
+.wall {
   position: absolute;
-  top: 0px;
-  left: 50%;
-  left: 565px;
-  width: 1em;
-  height: 6em;
   border: 3px solid $border-color;
-  border-radius: 0 0 6px 6px;
-  border-top: 4px solid #000000;
-  &::before {
-    content: "";
-  }
-  &::after {
-    content: "";
+  &.square {
+    top: 90px;
+    height: 54px;
+    border-radius: 1em;
+    &.sm {
+      width: 125px;
+    }
+    &.md {
+      width: 150px;
+    }
   }
 }
 
+#wall1 {
+  top: 0px;
+  // left: 50%;
+  left: 564px;
+  width: 1.5em;
+  height: 9em;
+  border-radius: 0 0 12px 12px;
+  border-top: 4px solid #000000;
+}
+
+#wall2 {
+  left: 80px;
+}
+
+#wall3 {
+  left: 320px;
+}
+
+#wall4 {
+  right: 320px;
+}
+
+#wall5 {
+  right: 80px;
+}
+
 .pacman {
-  width: 60px;
-  height: 60px;
+  width: $pac-dimensions;
+  height: $pac-dimensions;
   border-radius: 50%;
   background: #f2d648;
   position: relative;
@@ -62,11 +87,11 @@ body {
 
 .eye {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 13.34%;
+  height: 13.34%;
+  top: 13.34%;
+  right: 33.33%;
   border-radius: 50%;
-  top: 8px;
-  right: 20px;
   background: #333333;
 }
 
