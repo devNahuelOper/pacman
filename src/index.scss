@@ -9,15 +9,17 @@ body {
 
 .board {
   width: 60%;
+  min-width: 1152px;
   height: 98%;
   margin: 1em auto;
   border-radius: 1.25em;
+  border-radius: 2em;
   box-sizing: border-box;
   padding: 1em;
   background: #000;
   position: relative;
   // border: 8px double $border-color;
-  border: 6px solid #000;
+  border: 16px solid #000;
   box-shadow: 0px 0px 0px 4px inset $border-color, 0px 0px 0px 4px $border-color;
 }
 
@@ -35,19 +37,74 @@ body {
       width: 150px;
     }
   }
+  &.line {
+    height: 32px;
+    border-radius: 0.75em;
+    &.sm {
+      width: 125px;
+      top: 224px;
+    }
+  }
+  &.table {
+    width: 220px;
+    height: 146px;
+    border: 0;
+    // background: $border-color;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 23%,
+      57% 23%,
+      57% 100%,
+      43% 100%,
+      43% 23%,
+      0% 23%
+    );
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      // background-color: $border-color;
+      border-radius: 0.75em;
+      border: 3px solid $border-color;
+      // clip-path: inset(0% 0% round 16px);
+    }
+    &::before {
+      width: 216px;
+      height: 32px;
+      // z-index: 2;
+      box-shadow: 0px -8px 0px 4px inset #000000;
+      // background-color: red;
+      // box-shadow: 0px 0px 0px 6px inset $border-color;
+    }
+    &::after {
+      width: 124px;
+      height: 28px;
+      top: 3px;
+      // background-color: yellow;
+      transform: rotate(90deg) translate(34px, -48px);
+      border-left: 16px solid #000;
+    }
+    &#table1 {
+      top: 224px;
+      left: calc(50% - 105px);
+    }
+  }
 }
 
 #wall1 {
   top: 0px;
   // left: 50%;
-  left: 564px;
-  width: 1.5em;
+  left: 550px;
+  width: 28px;
   height: 9em;
   border-radius: 0 0 12px 12px;
   border-top: 4px solid #000000;
 }
 
-#wall2 {
+#wall2,
+#wall6 {
   left: 80px;
 }
 
@@ -59,7 +116,8 @@ body {
   right: 320px;
 }
 
-#wall5 {
+#wall5,
+#wall7 {
   right: 80px;
 }
 
