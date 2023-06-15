@@ -9,7 +9,7 @@ body {
 
 .board {
   width: 60%;
-  min-width: 1152px;
+  min-width: 1252px;
   height: 98%;
   margin: 1em auto;
   border-radius: 1.25em;
@@ -95,8 +95,8 @@ body {
 
 #wall1 {
   top: 0px;
-  // left: 50%;
   left: 550px;
+  left: 49.1%;
   width: 28px;
   height: 9em;
   border-radius: 0 0 12px 12px;
@@ -106,14 +106,17 @@ body {
 #wall2,
 #wall6 {
   left: 80px;
+  left: 7%;
 }
 
 #wall3 {
   left: 320px;
+  left: 28.58%;
 }
 
 #wall4 {
   right: 320px;
+  right: 28.58%;
 }
 
 #wall5,
