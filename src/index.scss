@@ -2,6 +2,7 @@
 
 $border-color: #3535c7;
 $pac-dimensions: 50;
+$table23: 27%;
 
 body {
   height: 100vh;
@@ -79,10 +80,12 @@ body {
     }
     &::after {
       width: 112px;
+      width: 96px;
       height: 28px;
-      // top: 3px;
-      transform: rotate(90deg)translate(32px, -54px);
+      transform: rotate(90deg) translate(32px, -54px);
+      transform: rotate(90deg) translate(24px, -62px);
       border-left: 16px solid #000;
+      border-left: 12px solid #000;
     }
     &#table1 {
       top: 224px;
@@ -90,13 +93,35 @@ body {
     }
     &#table2 {
       top: 270px;
-      left: 25.4%;
+      top: 230px;
+      left: $table23;
       transform: rotate(270deg);
     }
     &#table3 {
       top: 270px;
-      right: 25.4%;
+      right: $table23;
       transform: rotate(90deg);
+    }
+    &#table4 {
+      bottom: 262px;
+      bottom: 192px;
+      left: calc(50% - 105px);
+    }
+    &#table5 {
+      bottom: 10px;
+      left: calc(50% - 105px);
+    }
+    &#table2,
+    &#table3 {
+      width: 186px;
+      top: 250px;
+      &::before {
+        width: 186px;
+      }
+      &::after {
+        transform: rotate(90deg) translate(32px, -36px);
+        transform: rotate(90deg) translate(24px, -45px);
+      }
     }
   }
 }
@@ -111,25 +136,39 @@ body {
   border-top: 4px solid #000000;
 }
 
-#wall2,
-#wall6 {
+#square1,
+#line1 {
   left: 80px;
   left: 7%;
 }
 
-#wall3 {
+#square2 {
   left: 320px;
   left: 28.58%;
 }
 
-#wall4 {
+#square3 {
   right: 320px;
   right: 28.58%;
 }
 
-#wall5,
-#wall7 {
+#square4,
+#line2 {
   right: 80px;
+}
+
+#line3 {
+  left: 24.8%;
+}
+
+#line4 {
+  right: 24.8%;
+}
+
+#line3,
+#line4 {
+  transform: rotate(90deg);
+  top: 540px;
 }
 
 .pacman {
