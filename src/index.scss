@@ -3,6 +3,7 @@
 $border-color: #3535c7;
 $pac-dimensions: 50;
 $table23: 27%;
+$line56: 28.5%;
 
 body {
   height: 100vh;
@@ -104,11 +105,11 @@ body {
     }
     &#table4 {
       bottom: 262px;
-      bottom: 192px;
+      bottom: 224px;
       left: calc(50% - 105px);
     }
     &#table5 {
-      bottom: 10px;
+      bottom: 30px;
       left: calc(50% - 105px);
     }
     &#table2,
@@ -165,10 +166,22 @@ body {
   right: 24.8%;
 }
 
+#line5 {
+  left: $line56;
+}
+#line6 {
+  right: $line56;
+}
+
 #line3,
 #line4 {
   transform: rotate(90deg);
   top: 540px;
+}
+
+#line5, #line6 {
+  bottom: 244px;
+  top: unset;
 }
 
 .pacman {
