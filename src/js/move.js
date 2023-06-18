@@ -81,7 +81,7 @@ function moveLeft(currMove) {
 function moveRight(currMove) {
   let inProgress = true;
   const rightEdge =
-    board.clientWidth + board.offsetLeft - (pacman.clientWidth + 10);
+    board.clientWidth + board.offsetLeft - 24;
   const {
     x: pacX,
     y: pacY,
@@ -92,7 +92,7 @@ function moveRight(currMove) {
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving =
     noWallClose(pacRight, pacY - 2) &&
-    noWallClose(pacRight, pacBottom + 2) &&
+    noWallClose(pacRight, pacBottom - 4) &&
     noWallClose(pacRight, pacY + pacman.clientHeight / 2);
   if ((pacX < rightEdge && keepMoving) || isAtSide(pacX + 10, pacY)) {
     pacman.style.left = +pacman.style.left.replace("px", "") + 10 + "px";
