@@ -4,11 +4,19 @@
 $border-color: #3535c7;
 $pac-dimensions: 50;
 $table23: 27%;
+$line34: 26.2%;
 $line56: 28.5%;
 
 body {
   height: 100vh;
   background: #000;
+}
+
+#container {
+  height: inherit;
+  width: 1262px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .board {
@@ -106,8 +114,8 @@ body {
       transform: rotate(90deg);
     }
     &#table4 {
-      bottom: 262px;
       bottom: 224px;
+      bottom: 194px;
       left: calc(50% - 105px);
     }
     &#table5 {
@@ -162,10 +170,12 @@ body {
 
 #line3 {
   left: 24.8%;
+  left: $line34;
 }
 
 #line4 {
   right: 24.8%;
+  right: $line34;
 }
 
 #line5 {
@@ -179,11 +189,13 @@ body {
 #line4 {
   transform: rotate(90deg);
   top: 540px;
+  top: 515px;
+  width: 90px;
 }
 
 #line5,
 #line6 {
-  bottom: 244px;
+  bottom: 204px;
   top: unset;
 }
 
@@ -216,7 +228,8 @@ body {
   }
 }
 
-#lshape1, #lshape2 {
+#lshape1,
+#lshape2 {
   left: 127px;
   &::before {
     top: 21px;

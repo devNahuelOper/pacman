@@ -9,7 +9,7 @@ function ready() {
   const pacman = document.querySelector(".pacman");
   const board = document.querySelector(".board");
 
-  addEventListener("click", (e) => console.log(e.clientX, e.clientY));
+  addEventListener("click", (e) => console.log(e.clientX, e.clientY, document.elementFromPoint(e.clientX, e.clientY)));
 
   document.addEventListener("keydown", (e) => {
     if (e.key.includes("Arrow")) {
