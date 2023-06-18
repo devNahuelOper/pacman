@@ -8,6 +8,7 @@ $line56: 28.5%;
 
 body {
   height: 100vh;
+  background: #000;
 }
 
 .board {
@@ -184,6 +185,81 @@ body {
 #line6 {
   bottom: 244px;
   top: unset;
+}
+
+.lshape {
+  // border: 1px solid #3535c7;
+  width: 125px;
+  height: 32px;
+  border-radius: 0.75em;
+  bottom: 164px;
+  transform: rotate(90deg);
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 32px;
+    width: 80px;
+    left: -28px;
+    background: #000;
+    transform: rotate(90deg);
+    border: 3px solid #3535c7;
+
+    border-radius: 12px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+}
+
+#lshape1, #lshape2 {
+  left: 127px;
+  &::before {
+    top: 21px;
+    border-top: 0;
+    border-right: 0px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 12px;
+    box-shadow: 30px -1px 0px -2px #000, 30px -1px 0px 1px #3535c7;
+  }
+  &::after {
+    width: 86px;
+    height: 29px;
+    background: #000;
+    border-radius: 12px;
+    transform: rotate(90deg);
+    top: 46px;
+    left: -30px;
+  }
+  .inner {
+    height: 52px;
+    width: 80px;
+    position: absolute;
+    left: 26px;
+    top: 26px;
+    border-radius: 12px;
+    // border-bottom-left-radius: 0;
+    // border-top-right-radius: 0;
+    border-radius: 12px 0;
+    border: 3px solid #3535c7;
+    border-bottom: 0;
+    border-right: 0;
+    box-shadow: -7px -2px 0px 0px #000;
+  }
+}
+
+#lshape2 {
+  right: 127px;
+  left: unset;
+  transform: rotate(90deg) rotateX(180deg);
+  &::after {
+    width: 85px;
+    left: -29px;
+  }
 }
 
 .pacman {
