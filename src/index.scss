@@ -1,4 +1,5 @@
 @import "./styles/base.scss";
+@import "./styles/sides.scss";
 
 $border-color: #3535c7;
 $pac-dimensions: 50;
@@ -179,7 +180,8 @@ body {
   top: 540px;
 }
 
-#line5, #line6 {
+#line5,
+#line6 {
   bottom: 244px;
   top: unset;
 }
