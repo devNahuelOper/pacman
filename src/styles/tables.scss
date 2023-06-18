@@ -1,0 +1,84 @@
+$border-color: #3535c7;
+$table23Lat: 27%;
+$table23Lon: 240px;
+
+.wall {
+  &.table {
+    width: 220px;
+    height: 146px;
+    border: 0;
+    // background: $border-color;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 23%,
+      57% 23%,
+      57% 100%,
+      43% 100%,
+      43% 23%,
+      0% 23%
+    );
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      // background-color: $border-color;
+      border-radius: 0.75em;
+      border: 3px solid $border-color;
+      // clip-path: inset(0% 0% round 16px);
+    }
+    &::before {
+      width: 216px;
+      height: 32px;
+      // z-index: 2;
+      box-shadow: 0px -8px 0px 4px inset #000000;
+      // box-shadow: 0px 0px 0px 6px inset $border-color;
+    }
+    &::after {
+      width: 112px;
+      width: 96px;
+      height: 28px;
+      transform: rotate(90deg) translate(32px, -54px);
+      transform: rotate(90deg) translate(24px, -62px);
+      border-left: 16px solid #000;
+      border-left: 12px solid #000;
+    }
+    &#table1 {
+      top: 224px;
+      left: calc(50% - 105px);
+    }
+    &#table2 {
+      top: 270px;
+      top: 230px;
+      left: $table23Lat;
+      transform: rotate(270deg);
+    }
+    &#table3 {
+      top: 270px;
+      right: $table23Lat;
+      transform: rotate(90deg);
+    }
+    &#table4 {
+      bottom: 224px;
+      bottom: 194px;
+      left: calc(50% - 105px);
+    }
+    &#table5 {
+      bottom: 30px;
+      left: calc(50% - 105px);
+    }
+    &#table2,
+    &#table3 {
+      width: 186px;
+      top: 240px;
+      &::before {
+        width: 186px;
+      }
+      &::after {
+        transform: rotate(90deg) translate(32px, -36px);
+        transform: rotate(90deg) translate(24px, -45px);
+      }
+    }
+  }
+}
