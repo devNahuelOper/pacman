@@ -1,22 +1,32 @@
 $border-color: #3535c7;
-$table23Lat: 27%;
-$table23Lon: 240px;
+$table23Lat: 26%;
+$table23Lon: 230px;
 
 .wall {
   &.table {
     width: 220px;
     height: 146px;
+    height: 118px;
     border: 0;
-    // background: $border-color;
+    // clip-path: polygon(
+    //   0% 0%,
+    //   100% 0%,
+    //   100% 23%,
+    //   57% 23%,
+    //   57% 100%,
+    //   43% 100%,
+    //   43% 23%,
+    //   0% 23%
+    // );
     clip-path: polygon(
       0% 0%,
       100% 0%,
-      100% 23%,
-      57% 23%,
+      100% 32%,
+      57% 32%,
       57% 100%,
       43% 100%,
-      43% 23%,
-      0% 23%
+      43% 32%,
+      0% 32%
     );
     &::before,
     &::after {
@@ -49,29 +59,27 @@ $table23Lon: 240px;
       left: calc(50% - 105px);
     }
     &#table2 {
-      top: 270px;
-      top: 230px;
       left: $table23Lat;
       transform: rotate(270deg);
     }
     &#table3 {
-      top: 270px;
       right: $table23Lat;
       transform: rotate(90deg);
     }
     &#table4 {
-      bottom: 194px;
       bottom: 244px;
+      bottom: 264px;
       left: calc(50% - 105px);
     }
     &#table5 {
       bottom: 30px;
+      bottom: 50px;
       left: calc(50% - 105px);
     }
     &#table2,
     &#table3 {
       width: 186px;
-      top: 210px;
+      top: $table23Lon;
       &::before {
         width: 186px;
       }
