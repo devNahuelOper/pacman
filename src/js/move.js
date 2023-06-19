@@ -13,6 +13,7 @@ function noWallClose(x, y, type = "vertical") {
   });
   return Boolean(match == null);
 }
+window.noWallClose = noWallClose;
 
 function isAtSide(x, y) {
   let xBounds = (x >= 276 && x <= 556) || (x >= 1316 && x <= 1596);
@@ -27,8 +28,8 @@ function moveUp(currMove) {
   // const closest = document.elementFromPoint(pacX + 20, pacY - 15);
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving = noWallClose(pacX, pacY - 15);
-  if (pacman.offsetTop > 26 && keepMoving) {
-    pacman.style.top = +pacman.style.top.replace(/\D/g, "") - 10 + "px";
+  if (pacman.offsetTop > 16 && keepMoving) {
+    pacman.style.top = +pacman.style.top.replace("px", "") - 10 + "px";
   } else {
     cancelAnimationFrame(currMove);
     inProgress = false;
@@ -44,7 +45,7 @@ function moveDown(currMove) {
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving = noWallClose(pacX, pacY + 15);
   if (pacman.offsetTop < bottomEdge && keepMoving) {
-    pacman.style.top = +pacman.style.top.replace(/\D/g, "") + 10 + "px";
+    pacman.style.top = +pacman.style.top.replace("px", "") + 10 + "px";
   } else {
     cancelAnimationFrame(currMove);
     inProgress = false;
@@ -81,7 +82,7 @@ function moveLeft(currMove) {
 function moveRight(currMove) {
   let inProgress = true;
   const rightEdge =
-    board.clientWidth + board.offsetLeft - 24;
+    board.clientWidth + board.offsetLeft;
   const {
     x: pacX,
     y: pacY,
@@ -94,7 +95,7 @@ function moveRight(currMove) {
     noWallClose(pacRight, pacY - 2) &&
     noWallClose(pacRight, pacBottom - 4) &&
     noWallClose(pacRight, pacY + pacman.clientHeight / 2);
-  if ((pacX < rightEdge && keepMoving) || isAtSide(pacX + 10, pacY)) {
+  if ((pacRight < rightEdge && keepMoving) || isAtSide(pacX + 10, pacY)) {
     pacman.style.left = +pacman.style.left.replace("px", "") + 10 + "px";
     if (pacX + 10 >= 1596) {
       pacman.style.left = "-90px";
