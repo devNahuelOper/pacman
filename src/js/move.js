@@ -1,5 +1,8 @@
 const pacman = document.querySelector(".pacman");
 const board = document.querySelector(".board");
+const [side1, side2] = document.getElementsByClassName("side");
+const { bottom: side1Bottom } = side1.getBoundingClientRect();
+const { top: side2Top } = side2.getBoundingClientRect();
 
 function noWallClose(x, y, type = "vertical") {
   const indexes = Array.from(
@@ -17,7 +20,8 @@ window.noWallClose = noWallClose;
 
 function isAtSide(x, y) {
   let xBounds = (x >= 276 && x <= 556) || (x >= 1316 && x <= 1596);
-  const yBounds = y >= 448 && y <= 468;
+  // const yBounds = y >= 448 && y <= 468;
+  const yBounds = y >= side1Bottom && y <= side2Top;
   return xBounds && yBounds;
 }
 window.isAtSide = isAtSide;
