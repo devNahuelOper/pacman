@@ -3,6 +3,7 @@
 @import "./styles/tables.scss";
 
 $border-color: #3535c7;
+$pac-color: #f2d648;
 $pac-dimensions: 50;
 $table23Lat: 27%;
 $table23Lon: 240px;
@@ -248,6 +249,43 @@ body {
   &::after {
     width: 85px;
     left: -29px;
+  }
+}
+
+#cage {
+  width: 180px;
+  height: 80px;
+  left: calc(50% - 86px);
+  top: 390px;
+  outline: 2px solid $border-color;
+  outline-offset: 12px;
+  border-width: 2px;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -12px;
+    left: calc(50% - 20px);
+    left: calc(50% - 28px);
+    width: 40px;
+    width: 60px;
+    height: 8px;
+    background: #fffbfe;
+    border-radius: 2px;
+    box-shadow: 0px -12px 0px 2px #000, 0px 12px 0px 2px #000;
+    // border-top: 4px solid #000;
+    // border-bottom: 4px solid #000;
+  }
+  &.open {
+    &::before {
+      height: 16px;
+      top: -16px;
+      background: #000;
+      border-left: 2px solid $border-color;
+      border-right: 2px solid $border-color;
+      border-radius: 0px;
+      box-shadow: unset;
+    }
   }
 }
 
