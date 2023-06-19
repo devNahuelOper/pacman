@@ -1,8 +1,7 @@
 const pacman = document.querySelector(".pacman");
 const board = document.querySelector(".board");
-const [side1, side2] = document.getElementsByClassName("side");
-const { bottom: side1Bottom } = side1.getBoundingClientRect();
-const { top: side2Top } = side2.getBoundingClientRect();
+const [side1, side2, side3] = document.getElementsByClassName("side");
+
 
 function noWallClose(x, y, type = "vertical") {
   const indexes = Array.from(
@@ -19,7 +18,15 @@ function noWallClose(x, y, type = "vertical") {
 window.noWallClose = noWallClose;
 
 function isAtSide(x, y) {
-  let xBounds = (x >= 276 && x <= 556) || (x >= 1316 && x <= 1596);
+  const {
+    bottom: side1Bottom,
+    right: side1Right,
+    left: side1Left,
+  } = side1.getBoundingClientRect();
+  const { top: side2Top } = side2.getBoundingClientRect();
+  const { left: side3Left, right: side3Right } = side3.getBoundingClientRect();
+  // const xBounds = (x >= 276 && x <= 556) || (x >= 1316 && x <= 1596);
+  const xBounds = (x >= side1Left - 60 && x <= side1Right + 1) || (x >= side3Left - 60 && x <= side3Right + 60);
   // const yBounds = y >= 448 && y <= 468;
   const yBounds = y >= side1Bottom && y <= side2Top;
   return xBounds && yBounds;
@@ -65,6 +72,7 @@ function moveLeft(currMove) {
     y: pacY,
     bottom: pacBottom,
   } = pacman.getBoundingClientRect();
+  const { left: side1Left } = side1.getBoundingClientRect();
   // const closest = document.elementFromPoint(pacX - 28, pacY - 2);
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving =
@@ -73,7 +81,7 @@ function moveLeft(currMove) {
     noWallClose(pacX - 28, pacY + pacman.clientHeight / 2);
   if ((pacX > leftEdge && keepMoving) || isAtSide(pacX - 10, pacY)) {
     pacman.style.left = +pacman.style.left.replace("px", "") - 10 + "px";
-    if (pacX - 10 <= 276) {
+    if (pacX - 10 <= side1Left - 50) {
       pacman.style.left = "1230px";
     }
   } else {
