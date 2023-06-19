@@ -6,7 +6,7 @@ $border-color: #3535c7;
 $pac-dimensions: 50;
 $table23Lat: 27%;
 $table23Lon: 240px;
-$line34: 26.2%;
+$line34: 26.5%;
 $line56: 28.5%;
 
 body {
@@ -41,7 +41,7 @@ body {
   position: absolute;
   border: 3px solid $border-color;
   &.square {
-    top: 90px;
+    top: 70px;
     height: 54px;
     border-radius: 1em;
     &.sm {
@@ -56,7 +56,7 @@ body {
     border-radius: 0.75em;
     &.sm {
       width: 125px;
-      top: 224px;
+      top: 194px;
     }
   }
   &.bump {
@@ -64,7 +64,7 @@ body {
     width: 90px;
     border-radius: 12px;
     position: absolute;
-    bottom: 118px;
+    bottom: 158px;
     &#bump1 {
       left: 0px;
       border-left: 4px solid #000;
@@ -76,6 +76,39 @@ body {
       border-radius: 12px 0 0 12px;
     }
   }
+  &.nightstick {
+    width: 225px;
+    width: 360px;
+    height: 32px;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 50px;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 28px;
+      height: 72px;
+      border: inherit;
+      border-bottom: 3px solid #000;
+      bottom: 26px;
+      border-radius: 12px 12px 0 0;
+    }
+    &#nightstick1 {
+      left: 90px;
+      left: 110px;
+      &::before {
+        right: 90px;
+      }
+    }
+    &#nightstick2 {
+      right: 90px;
+      right: 110px;
+      &::before {
+        left: 90px;
+      }
+    }
+  }
 }
 
 #wall1 {
@@ -83,7 +116,7 @@ body {
   left: 550px;
   left: 49.1%;
   width: 28px;
-  height: 9em;
+  height: 7.5em;
   border-radius: 0 0 12px 12px;
   border-top: 4px solid #000000;
 }
@@ -129,14 +162,15 @@ body {
 #line3,
 #line4 {
   transform: rotate(90deg);
-  top: 540px;
   top: 525px;
-  width: 90px;
+  top: 485px;
+  width: 85px;
 }
 
 #line5,
 #line6 {
   bottom: 204px;
+  bottom: 244px;
   top: unset;
 }
 
@@ -146,6 +180,7 @@ body {
   height: 32px;
   border-radius: 0.75em;
   bottom: 164px;
+  bottom: 204px;
   transform: rotate(90deg);
   &::before {
     content: "";
