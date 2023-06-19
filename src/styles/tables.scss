@@ -45,7 +45,7 @@ $table23Lon: 240px;
       border-left: 12px solid #000;
     }
     &#table1 {
-      top: 224px;
+      top: 194px;
       left: calc(50% - 105px);
     }
     &#table2 {
@@ -60,8 +60,8 @@ $table23Lon: 240px;
       transform: rotate(90deg);
     }
     &#table4 {
-      bottom: 224px;
       bottom: 194px;
+      bottom: 244px;
       left: calc(50% - 105px);
     }
     &#table5 {
@@ -71,7 +71,7 @@ $table23Lon: 240px;
     &#table2,
     &#table3 {
       width: 186px;
-      top: 240px;
+      top: 210px;
       &::before {
         width: 186px;
       }
