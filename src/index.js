@@ -1,4 +1,5 @@
 import { moveUp, moveDown, moveLeft, moveRight } from "./js/move.js";
+import { shuffle } from "./js/util";
 
 document.addEventListener("DOMContentLoaded", ready);
 window.point = (x, y) => document.elementFromPoint(x, y);
@@ -9,7 +10,13 @@ function ready() {
   const pacman = document.querySelector(".pacman");
   const board = document.querySelector(".board");
 
-  addEventListener("click", (e) => console.log(e.clientX, e.clientY, document.elementFromPoint(e.clientX, e.clientY)));
+  addEventListener("click", (e) =>
+    console.log(
+      e.clientX,
+      e.clientY,
+      document.elementFromPoint(e.clientX, e.clientY)
+    )
+  );
 
   document.addEventListener("keydown", (e) => {
     if (e.key.includes("Arrow")) {
@@ -23,6 +30,23 @@ function ready() {
       }
     }
   });
+
+  setTimeout(ghostLooking, 1000);
+}
+
+function ghostLooking() {
+  const dirs = ["left", "right", "up", "down"];
+  const ghosts = document.getElementsByClassName("ghost-eyes");
+  [...ghosts].forEach((ghost, idx) => {
+    ghost.classList.add(`look-${dirs[idx]}`);
+  });
+  setInterval(() => {
+    const shuffled = shuffle(dirs);
+    [...ghosts].forEach((ghost, idx) => {
+      const current = ghost.classList.item(1);
+      ghost.classList.replace(current, `look-${shuffled[idx]}`);
+    });
+  }, 5000);
 }
 
 function move(dir) {
