@@ -289,6 +289,97 @@ body {
   }
 }
 
+.ghost-wrap {
+  min-width: 300px;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ghost {
+  width: 50px;
+  height: 60px;
+  font-size: 1.5em;
+  letter-spacing: -2px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 32px 32px 0px 0px;
+  display: flex;
+  align-items: flex-end;
+  line-height: 0px;
+  position: relative;
+  .ghost-eyes {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 40px;
+    top: 10px;
+    left: calc(50% - 20px);
+    &.look-left {
+      left: calc(50% - 23px);
+      .pupil {
+        left: 0;
+      }
+    }
+    &.look-right {
+      left: calc(50% - 17px);
+      .pupil {
+        left: 10px;
+      }
+    }
+    &.look-up {
+      top: 5px;
+      .pupil {
+        top: 0px;
+        left: 4px;
+      }
+    }
+    &.look-down {
+      top: 15px;
+      .pupil {
+        top: 10px;
+      }
+    }
+  }
+  .ghost-eye {
+    background-color: #fff;
+    border-radius: 12px;
+    display: block;
+    width: 16px;
+    height: 20px;
+    position: relative;
+    .pupil {
+      display: block;
+      background-color: #1978b6;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+  }
+}
+
+#ghost-red {
+  color: #e72320;
+  background-color: #e72320;
+}
+#ghost-blue {
+  color: #5cb3e3;
+  background-color: #5cb3e3;
+}
+#ghost-pink {
+  color: #f69dbe;
+  background-color: #f69dbe;
+}
+#ghost-orange {
+  color: #eb8128;
+  background-color: #eb8128;
+}
+
 .pacman {
   width: $pac-dimensions;
   height: $pac-dimensions;
