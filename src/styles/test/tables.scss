@@ -1,0 +1,82 @@
+$border-color: #3600ff;
+$table23Lat: 23%;
+$table23Lon: 240px;
+
+.wall {
+  &.table {
+    width: 310px;
+    height: 118px;
+    border: 0;
+    // clip-path: polygon(
+    //   0% 0%,
+    //   100% 0%,
+    //   100% 32%,
+    //   57% 32%,
+    //   57% 100%,
+    //   43% 100%,
+    //   43% 32%,
+    //   0% 32%
+    // );
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      // background-color: $border-color;
+      border-radius: 0.75em;
+      border: 3px solid $border-color;
+      // clip-path: inset(0% 0% round 16px);
+    }
+    &::before {
+      width: 316px;
+      height: 32px;
+      // z-index: 2;
+      box-shadow: 0px -8px 0px 4px inset #000000;
+      // box-shadow: 0px 0px 0px 6px inset $border-color;
+    }
+    &::after {
+      width: 112px;
+      width: 96px;
+      height: 48px;
+      transform: rotate(90deg) translate(14px, -106px);
+      border-left: 16px solid #000;
+      border-left: 12px solid #000;
+    }
+    &#table1 {
+      top: 194px;
+      left: calc(50% - 155px);
+    }
+    &#table2 {
+      left: $table23Lat;
+      transform: rotate(270deg);
+    }
+    &#table3 {
+      right: $table23Lat;
+      transform: rotate(90deg);
+    }
+    &#table4 {
+      bottom: 256px;
+      left: calc(50% - 155px);
+    }
+    &#table5 {
+      bottom: 75px;
+      left: calc(50% - 155px);
+    }
+    &#table2,
+    &#table3 {
+      width: 186px;
+      width: 210px;
+      top: $table23Lon;
+      &::before {
+        width: 186px;
+        width: 210px;
+        height: 47px;
+      }
+      &::after {
+        height: 36px;
+        width: 145px;
+        transform: rotate(90deg) translate(43px, -33px);
+      }
+    }
+  }
+}
