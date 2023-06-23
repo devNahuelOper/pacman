@@ -7,7 +7,7 @@
 
 $border-color: #3600ff;
 $pac-color: #f2d648;
-$pac-dimensions: 50;
+$pac-dimensions: 40;
 $table23Lat: 23%;
 $table23Lon: 240px;
 $line34: 23.5%;
@@ -60,7 +60,7 @@ body {
   &.square {
     top: 72px;
     // height: 54px;
-    height: 66px;
+    height: 56px;
     border-radius: 1em;
     &.sm {
       // width: 155px;
@@ -81,20 +81,16 @@ body {
     }
   }
   &.table {
-    // clip-path: polygon(
-    //   0% 0%,
-    //   100% 0%,
-    //   100% 32%,
-    //   57% 32%,
-    //   57% 100%,
-    //   32% 100%,
-    //   32% 32%,
-    //   0% 32%
-    // );
-    // &::after {
-    //   width: 96px;
-    //   transform: rotate(90deg) translate(14px, -106px);
-    // }
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 29%,
+      57% 29%,
+      57% 100%,
+      41% 100%,
+      41% 29%,
+      0% 29%
+    );
   }
   &.side {
     width: 265px;
@@ -121,7 +117,7 @@ body {
     height: 32px;
     border-radius: 12px;
     position: absolute;
-    bottom: 75px;
+    bottom: 65px;
     &::before {
       content: "";
       display: block;
@@ -154,11 +150,9 @@ body {
   border-radius: 0 0 12px 12px;
   border-top: 4px solid #000000;
   top: 0px;
-  // top: 20px;
-  // width: 28px;
   width: 46px;
   // height: 7.5em;
-  height: 7.25em;
+  height: 132px;
   // left: 49.1%;
   left: 48.1%;
 }
@@ -213,19 +207,17 @@ body {
 
 #line5,
 #line6 {
-  bottom: 254px;
+  bottom: 234px;
   top: unset;
   width: 184px;
 }
 
 .lshape {
   // border: 1px solid $border-color;
-  width: 125px;
-  height: 48px;
+  width: 120px;
   height: 32px;
   border-radius: 0.75em;
-  bottom: 164px;
-  bottom: 204px;
+  bottom: 192px;
   transform: rotate(90deg);
   &::before {
     content: "";
