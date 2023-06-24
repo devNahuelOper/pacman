@@ -293,21 +293,17 @@ body {
 }
 
 #cage {
-  width: 272px;
-  height: 77px;
-  left: calc(50% - 136px);
-  top: 394px;
-  outline: 2px solid $border-color;
-  outline-offset: 20px;
-  // border-width: 2px;
-  border: 0;
+  width: 316px;
+  height: 121px;
+  top: 371px;
+  left: calc(50% - 158px);
+  border: 2px solid $border-color;
   &::before {
     content: "";
     display: block;
     position: absolute;
-    top: -16px;
+    top: 5px;
     left: calc(50% - 45px);
-    // width: 40px;
     width: 90px;
     height: 3px;
     background: #fffbfe;
@@ -319,10 +315,11 @@ body {
     content: "";
     display: block;
     position: absolute;
-    top: -8px;
+    height: 78.97%;
+    width: 87.18%;
+    top: 13px;
+    left: 22px;
     background: #000;
-    width: 100%;
-    height: 120%;
     border: 2px solid $border-color;
     z-index: 0;
   }
