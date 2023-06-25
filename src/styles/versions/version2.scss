@@ -1,14 +1,17 @@
-@import "./styles/base.scss";
-@import "./styles/sides.scss";
-@import "./styles/tables.scss";
+// @import "./styles/base.scss";
+// @import "./styles/sides.scss";
+// @import "./styles/tables.scss";
+@import "./base.scss";
+@import "./sides.scss";
+@import "./tables.scss";
 
 $border-color: #3600ff;
 $pac-color: #f2d648;
-$pac-dimensions: 40;
+$pac-dimensions: 50;
 $table23Lat: 23%;
 $table23Lon: 240px;
-$line34: 24%;
-$line56: 26.5%;
+$line34: 23.5%;
+$line56: 25.5%;
 
 body {
   height: 100vh;
@@ -27,70 +30,84 @@ body {
   width: 1262px;
   margin: 0 auto;
   overflow: hidden;
-  // background-image: url("../../assets/maze-large2.png");
-  background-repeat: no-repeat;
-  background-size: 100% 924px;
 }
 
 .board {
   width: 60%;
   min-width: 1252px;
-  height: 100%;
-  margin: auto;
+  height: 98%;
+  margin: 1em auto;
   border-radius: 1.25em;
   border-radius: 2em;
   box-sizing: border-box;
   padding: 1em;
   background-color: #000;
-  // background-image: url("../../assets/maze-large2.png");
-  background-repeat: no-repeat;
-  background-size: 100% 924px;
+  // background-image: url("../assets/maze-large.png");
+  // background-repeat: no-repeat;
+  // background-size: cover;
   position: relative;
+  // border: 8px double $border-color;
   border: 16px solid #000;
   box-shadow: 0px 0px 0px 4px inset $border-color, 0px 0px 0px 4px $border-color;
-  opacity: 1;
 }
 
 .wall {
   position: absolute;
   border: 3px solid $border-color;
   &.square {
-    top: 72px;
-    // height: 54px;
-    height: 56px;
+    top: 70px;
+    height: 54px;
     border-radius: 1em;
     &.sm {
-      // width: 155px;
-      width: 130px;
+      width: 155px;
     }
     &.md {
-      // width: 200px;
-      width: 180px;
+      width: 200px;
     }
   }
   &.line {
     height: 32px;
     border-radius: 0.75em;
     &.sm {
-      // width: 155px;
-      width: 130px;
-      top: 192px;
+      width: 155px;
+      top: 194px;
     }
   }
   &.table {
     clip-path: polygon(
       0% 0%,
       100% 0%,
-      100% 29%,
-      57% 29%,
+      100% 32%,
+      57% 32%,
       57% 100%,
-      41% 100%,
-      41% 29%,
-      0% 29%
+      32% 100%,
+      32% 32%,
+      0% 32%
     );
+    &::after {
+      width: 86px;
+      transform: rotate(90deg) translate(20px, -62px);
+    }
+    &#table4 {
+      bottom: 234px;
+    }
+    &#table2 {
+      left: $table23Lat;
+      &::after {
+        transform: rotate(90deg) translate(32px, -36px);
+        transform: rotate(90deg) translate(18px, -45px);
+      }
+    }
+    &#table3 {
+      right: $table23Lat;
+      &::after {
+        transform: rotate(90deg) translate(32px, -36px);
+        transform: rotate(90deg) translate(18px, -45px);
+      }
+    }
   }
   &.side {
-    width: 265px;
+    width: 245px;
   }
   &.bump {
     height: 32px;
@@ -110,17 +127,18 @@ body {
     }
   }
   &.nightstick {
-    width: 404px;
+    width: 225px;
+    width: 320px;
     height: 32px;
     border-radius: 12px;
     position: absolute;
-    bottom: 65px;
+    bottom: 50px;
     &::before {
       content: "";
       display: block;
       position: absolute;
-      width: 48px;
-      height: 92px;
+      width: 28px;
+      height: 72px;
       border: inherit;
       border-bottom: 3px solid #000;
       bottom: 26px;
@@ -130,50 +148,47 @@ body {
       left: 90px;
       left: 110px;
       &::before {
-        right: 130px;
+        right: 90px;
       }
     }
     &#nightstick2 {
       right: 90px;
       right: 110px;
       &::before {
-        left: 130px;
+        left: 90px;
       }
     }
   }
 }
 
 #wall1 {
+  top: 0px;
+  left: 550px;
+  left: 49.1%;
+  width: 28px;
+  height: 7.5em;
   border-radius: 0 0 12px 12px;
   border-top: 4px solid #000000;
-  top: 0px;
-  width: 46px;
-  // height: 7.5em;
-  height: 132px;
-  // left: 49.1%;
-  left: 48.1%;
 }
 
 #square1,
 #line1 {
-  // left: 5.5%;
-  left: 9%;
+  left: 5.5%;
 }
 
 #square2 {
-  // left: 25.58%;
-  left: 26.5%;
+  left: 320px;
+  left: 25.58%;
 }
 
 #square3 {
-  // right: 320px;
-  right: 26.5%;
+  right: 320px;
+  right: 25.58%;
 }
 
 #square4,
 #line2 {
-  // right: 5.5%;
-  right: 9%;
+  right: 5.5%;
 }
 
 #line3 {
@@ -196,25 +211,26 @@ body {
 #line3,
 #line4 {
   transform: rotate(90deg);
-  top: 497px;
-  width: 115px;
-  height: 50px;
-  border-radius: 1em;
+  top: 525px;
+  top: 485px;
+  width: 85px;
 }
 
 #line5,
 #line6 {
-  bottom: 234px;
+  bottom: 204px;
+  bottom: 242px;
   top: unset;
-  width: 184px;
+  width: 115px;
 }
 
 .lshape {
   // border: 1px solid $border-color;
-  width: 120px;
+  width: 125px;
   height: 32px;
   border-radius: 0.75em;
-  bottom: 192px;
+  bottom: 164px;
+  bottom: 204px;
   transform: rotate(90deg);
   &::before {
     content: "";
@@ -240,7 +256,7 @@ body {
 
 #lshape1,
 #lshape2 {
-  left: 166px;
+  left: 147px;
   &::before {
     top: 21px;
     border-top: 0;
@@ -260,14 +276,10 @@ body {
   }
   .inner {
     height: 52px;
-    // height: 200%;
     width: 80px;
-    // width: 64%;
     position: absolute;
-    // left: 26px;
-    left: 22%;
-    // top: 26px;
-    top: 99%;
+    left: 26px;
+    top: 26px;
     border-radius: 12px;
     // border-bottom-left-radius: 0;
     // border-top-right-radius: 0;
@@ -280,7 +292,7 @@ body {
 }
 
 #lshape2 {
-  right: 166px;
+  right: 147px;
   left: unset;
   transform: rotate(90deg) rotateX(180deg);
   &::after {
@@ -290,35 +302,28 @@ body {
 }
 
 #cage {
-  width: 316px;
-  height: 121px;
-  top: 371px;
-  left: calc(50% - 158px);
-  border: 2px solid $border-color;
+  width: 180px;
+  height: 80px;
+  left: calc(50% - 86px);
+  top: 380px;
+  outline: 2px solid $border-color;
+  outline-offset: 12px;
+  border-width: 2px;
   &::before {
     content: "";
     display: block;
     position: absolute;
-    top: 5px;
-    left: calc(50% - 45px);
-    width: 90px;
-    height: 3px;
+    top: -12px;
+    left: calc(50% - 20px);
+    left: calc(50% - 28px);
+    width: 40px;
+    width: 60px;
+    height: 8px;
     background: #fffbfe;
     border-radius: 2px;
-    box-shadow: 0 -8px 0 2px #000, 0 9px 0 2px #000;
-    z-index: 1;
-  }
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 78.97%;
-    width: 87.18%;
-    top: 13px;
-    left: 22px;
-    background: #000;
-    border: 2px solid $border-color;
-    z-index: 0;
+    box-shadow: 0px -12px 0px 2px #000, 0px 12px 0px 2px #000;
+    // border-top: 4px solid #000;
+    // border-bottom: 4px solid #000;
   }
   &.open {
     &::before {
@@ -335,13 +340,13 @@ body {
 
 .ghost-wrap {
   // min-width: 300px;
-  min-width: 178px;
+  min-width: 168px;
   position: absolute;
   display: flex;
   justify-content: space-between;
   // left: 40%;
   // top: 40%;
-  top: 44%;
+  top: 43.5%;
   left: 43.5%;
 }
 

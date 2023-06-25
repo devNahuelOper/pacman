@@ -2,9 +2,8 @@ $border-color: #3600ff;
 
 .wall {
   &.side {
-    width: 150px;
-    width: 225px;
-    height: 80px;
+    width: 265px;
+    height: 120px;
     border-radius: 0px 8px 8px 0px;
     left: -20px;
     border-left: 10px solid #000;
@@ -34,8 +33,7 @@ $border-color: #3600ff;
 }
 
 #side1 {
-  top: 330px;
-  top: 300px;
+  top: 282px;
   hr {
     &:first-of-type {
       bottom: 13px;
@@ -70,8 +68,8 @@ $border-color: #3600ff;
     background: #000;
     position: absolute;
     width: 100%;
-    height: 80px;
-    top: 77px;
+    height: 58px;
+    top: 117px;
     left: -10px;
   }
 }
@@ -100,7 +98,7 @@ $border-color: #3600ff;
     display: block;
     position: absolute;
     background: #000;
-    top: 59px;
+    top: 99px;
     left: -7px;
     border-top: 2px solid $border-color;
     border-left: 1px solid $border-color;
@@ -112,8 +110,7 @@ $border-color: #3600ff;
 #side3 {
   right: -20px;
   left: unset;
-  top: 330px;
-  top: 300px;
+  top: 282px;
   hr {
     &:first-of-type {
       bottom: 13px;
@@ -149,7 +146,7 @@ $border-color: #3600ff;
     position: absolute;
     width: 100%;
     height: 80px;
-    top: 77px;
+    top: 117px;
     left: 10px;
   }
 }
@@ -180,7 +177,7 @@ $border-color: #3600ff;
     display: block;
     position: absolute;
     background: #000;
-    top: 59px;
+    top: 99px;
     right: -7px;
     border-top: 2px solid $border-color;
     border-right: 1px solid $border-color;

@@ -1,32 +1,21 @@
 $border-color: #3600ff;
-$table23Lat: 26%;
-$table23Lon: 230px;
+$table23Lat: 25.5%;
+$table23Lon: 210px;
 
 .wall {
   &.table {
-    width: 220px;
-    height: 146px;
+    width: 310px;
     height: 118px;
     border: 0;
-    // clip-path: polygon(
-    //   0% 0%,
-    //   100% 0%,
-    //   100% 23%,
-    //   57% 23%,
-    //   57% 100%,
-    //   43% 100%,
-    //   43% 23%,
-    //   0% 23%
-    // );
     clip-path: polygon(
       0% 0%,
       100% 0%,
-      100% 32%,
-      57% 32%,
+      100% 29%,
+      57% 29%,
       57% 100%,
-      43% 100%,
-      43% 32%,
-      0% 32%
+      41% 100%,
+      41% 29%,
+      0% 29%
     );
     &::before,
     &::after {
@@ -39,7 +28,8 @@ $table23Lon: 230px;
       // clip-path: inset(0% 0% round 16px);
     }
     &::before {
-      width: 216px;
+      width: 316px;
+      width: 100%;
       height: 32px;
       // z-index: 2;
       box-shadow: 0px -8px 0px 4px inset #000000;
@@ -48,15 +38,14 @@ $table23Lon: 230px;
     &::after {
       width: 112px;
       width: 96px;
-      height: 28px;
-      transform: rotate(90deg) translate(32px, -54px);
-      transform: rotate(90deg) translate(24px, -62px);
+      height: 48px;
+      transform: rotate(90deg) translate(14px, -104px);
       border-left: 16px solid #000;
       border-left: 12px solid #000;
     }
     &#table1 {
       top: 194px;
-      left: calc(50% - 105px);
+      left: calc(50% - 155px);
     }
     &#table2 {
       left: $table23Lat;
@@ -67,25 +56,37 @@ $table23Lon: 230px;
       transform: rotate(90deg);
     }
     &#table4 {
-      bottom: 244px;
-      bottom: 224px;
-      left: calc(50% - 105px);
+      bottom: 256px;
+      left: calc(50% - 155px);
     }
     &#table5 {
-      bottom: 30px;
-      bottom: 50px;
-      left: calc(50% - 105px);
+      bottom: 65px;
+      left: calc(50% - 155px);
     }
     &#table2,
     &#table3 {
-      width: 186px;
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 27%,
+        59% 27%,
+        59% 100%,
+        41% 100%,
+        41% 27%,
+        0% 27%
+      );
+      width: 210px;
+      height: 180px;
       top: $table23Lon;
       &::before {
         width: 186px;
+        width: 210px;
+        height: 47px;
       }
       &::after {
-        transform: rotate(90deg) translate(32px, -36px);
-        transform: rotate(90deg) translate(24px, -45px);
+        height: 36px;
+        width: 145px;
+        transform: rotate(90deg) translate(43px, -33px);
       }
     }
   }
