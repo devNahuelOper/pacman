@@ -77,7 +77,7 @@ function moveLeft(currMove) {
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving =
     noWallClose(pacX - 18, pacY - 2) &&
-    noWallClose(pacX - 18, pacBottom + 2) &&
+    noWallClose(pacX - 18, pacBottom - 4) &&
     noWallClose(pacX - 18, pacY + pacman.clientHeight / 2);
   if ((pacX > leftEdge && keepMoving) || isAtSide(pacX - step, pacY)) {
     pacman.style.left = +pacman.style.left.replace("px", "") - step + "px";
