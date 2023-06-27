@@ -9,6 +9,40 @@ let currMove, currDir;
 function ready() {
   const pacman = document.querySelector(".pacman");
   const board = document.querySelector(".board");
+  const ruler = document.getElementById("ruler");
+
+  if (ruler) {
+    ruler.onpointerdown = (e) => {
+      const { clientX, clientY, pageX, pageY } = e;
+      const { left, top, right, bottom } = ruler.getBoundingClientRect();
+      const isResize = clientX >= right - 16 && clientY >= bottom - 16;
+      const shiftX = clientX - left;
+      const shiftY = clientY - top;
+
+      // document.body.append(ruler);
+
+      if (!isResize) moveAt(pageX, pageY);
+
+      function moveAt(x, y) {
+        ruler.style.left = `${x - shiftX - (board.offsetLeft + 16)}px`;
+        ruler.style.top = `${y - shiftY - 16}px`;
+      }
+
+      function onMove(event) {
+        if (!isResize) moveAt(event.pageX, event.pageY);
+      }
+
+      document.addEventListener("pointermove", onMove);
+
+      ruler.onpointerup = () => {
+        ruler.textContent = `${ruler.clientWidth}x${ruler.clientHeight}`;
+        document.removeEventListener("pointermove", onMove);
+        ruler.onpointerup = null;
+      };
+    };
+    ruler.ondragstart = () => false;
+    ruler.ondragend = () => (ruler.onpointerdown = null);
+  }
 
   addEventListener("click", (e) =>
     console.log(
