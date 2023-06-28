@@ -10,9 +10,15 @@ $table23Lon: 240px;
 $line34: 24%;
 $line56: 26.5%;
 
+@font-face {
+  font-family: "Press Start 2P";
+  src: "./assets/fonts/PressStart2P-Regular.ttf";
+}
+
 body {
   height: 100vh;
   background: #000;
+  font-family: "Press Start 2P";
 }
 
 #ruler {
@@ -20,6 +26,16 @@ body {
   height: 50px;
   position: absolute;
   background: red;
+  resize: both;
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  &.lg {
+    font-size: 16px;
+  }
 }
 
 #container {
@@ -95,6 +111,7 @@ body {
   &.bump {
     height: 32px;
     width: 100px;
+    width: 150px;
     border-radius: 12px;
     position: absolute;
     bottom: 158px;
@@ -111,6 +128,7 @@ body {
   }
   &.nightstick {
     width: 404px;
+    width: 450px;
     height: 32px;
     border-radius: 12px;
     position: absolute;
@@ -127,17 +145,17 @@ body {
       border-radius: 12px 12px 0 0;
     }
     &#nightstick1 {
-      left: 90px;
       left: 110px;
+      left: 70px;
       &::before {
-        right: 130px;
+        right: 140px;
       }
     }
     &#nightstick2 {
-      right: 90px;
       right: 110px;
+      right: 70px;
       &::before {
-        left: 130px;
+        left: 140px;
       }
     }
   }
@@ -205,8 +223,10 @@ body {
 #line5,
 #line6 {
   bottom: 234px;
+  bottom: 245px;
   top: unset;
   width: 184px;
+  width: 200px;
 }
 
 .lshape {
@@ -214,15 +234,17 @@ body {
   width: 120px;
   height: 32px;
   border-radius: 0.75em;
-  bottom: 192px;
+  bottom: 200px;
   transform: rotate(90deg);
   &::before {
     content: "";
     display: block;
     position: absolute;
     height: 32px;
-    width: 80px;
-    left: -28px;
+    // width: 80px;
+    width: 150px;
+    // left: -28px;
+    left: -64px;
     background: #000;
     transform: rotate(90deg);
     border: 3px solid $border-color;
@@ -243,6 +265,7 @@ body {
   left: 166px;
   &::before {
     top: 21px;
+    top: 56px;
     border-top: 0;
     border-right: 0px;
     border-top-left-radius: 0;
@@ -251,22 +274,24 @@ body {
   }
   &::after {
     width: 86px;
-    height: 29px;
+    // height: 29px;
+    height: 26px;
     background: #000;
     border-radius: 12px;
     transform: rotate(90deg);
     top: 46px;
+    top: 115px;
     left: -30px;
+    left: -32px;
   }
   .inner {
-    height: 52px;
-    // height: 200%;
+    // height: 52px;
+    height: 122px;
     width: 80px;
     // width: 64%;
     position: absolute;
-    // left: 26px;
     left: 22%;
-    // top: 26px;
+    left: 23%;
     top: 99%;
     border-radius: 12px;
     // border-bottom-left-radius: 0;
@@ -284,8 +309,8 @@ body {
   left: unset;
   transform: rotate(90deg) rotateX(180deg);
   &::after {
-    width: 85px;
-    left: -29px;
+    width: 86px;
+    left: -32px;
   }
 }
 
@@ -341,7 +366,7 @@ body {
   justify-content: space-between;
   // left: 40%;
   // top: 40%;
-  top: 44%;
+  top: 45%;
   left: 43.5%;
 }
 
