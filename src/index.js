@@ -36,6 +36,11 @@ function ready() {
 
       ruler.onpointerup = () => {
         ruler.textContent = `${ruler.clientWidth}x${ruler.clientHeight}`;
+        if (ruler.clientWidth >= 96) {
+          ruler.classList.add("lg");
+        } else {
+          ruler.classList.remove("lg");
+        }
         document.removeEventListener("pointermove", onMove);
         ruler.onpointerup = null;
       };
