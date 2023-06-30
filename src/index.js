@@ -13,6 +13,9 @@ function ready() {
 
   if (ruler) {
     ruler.onpointerdown = (e) => {
+      if (e.button) {
+        return;
+      }
       const { clientX, clientY, pageX, pageY } = e;
       const { left, top, right, bottom } = ruler.getBoundingClientRect();
       const isResize = clientX >= right - 16 && clientY >= bottom - 16;
