@@ -1,6 +1,9 @@
 $border-color: #3600ff;
-$table23Lat: 25.5%;
-$table23Lon: 210px;
+// $table23Lat: 25.5%;
+$table23Lat: 24.3%;
+// $table23Lat: 25.7%;
+$table23Lon: 209px;
+// $table23Lon: 189px;
 
 .wall {
   &.table {
@@ -46,6 +49,7 @@ $table23Lon: 210px;
     &#table1 {
       top: 194px;
       left: calc(50% - 155px);
+      
     }
     &#table2 {
       left: $table23Lat;
@@ -56,12 +60,22 @@ $table23Lon: 210px;
       transform: rotate(90deg);
     }
     &#table4 {
-      bottom: 246px;
+      bottom: 242px;
       left: calc(50% - 155px);
     }
     &#table5 {
-      bottom: 65px;
+      bottom: 61px;
       left: calc(50% - 155px);
+    }
+    &#table1,
+    &#table4,
+    &#table5 {
+      left: calc(50% - 191px);
+      width: 382px;
+      height: 124px;
+      &::after {
+        transform: rotate(90deg) translate(17px, -142px);
+      }
     }
     &#table2,
     &#table3 {
@@ -77,6 +91,7 @@ $table23Lon: 210px;
       );
       width: 210px;
       height: 180px;
+      // height: 216px;
       top: $table23Lon;
       &::before {
         width: 186px;
@@ -86,7 +101,9 @@ $table23Lon: 210px;
       &::after {
         height: 36px;
         width: 145px;
+        // width: 176px;
         transform: rotate(90deg) translate(43px, -33px);
+        // transform: rotate(90deg) translate(60px, -16px);
       }
     }
   }
