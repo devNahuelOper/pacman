@@ -89,7 +89,7 @@ body {
     }
   }
   &.line {
-    height: 32px;
+    height: 36px;
     border-radius: 0.75em;
     &.sm {
       // width: 130px;
@@ -114,13 +114,13 @@ body {
     width: 265px;
   }
   &.bump {
-    height: 32px;
-    width: 100px;
+    // height: 35px;
+    height: 42px;
     width: 150px;
     border-radius: 12px;
     position: absolute;
     // bottom: 158px;
-    top: 722px;
+    top: 715px;
     &#bump1 {
       left: 0px;
       border-left: 4px solid #000;
@@ -133,8 +133,7 @@ body {
     }
   }
   &.nightstick {
-    width: 404px;
-    width: 450px;
+    width: 455px;
     height: 32px;
     border-radius: 12px;
     position: absolute;
@@ -152,16 +151,14 @@ body {
       border-radius: 12px 12px 0 0;
     }
     &#nightstick1 {
-      left: 110px;
-      left: 70px;
+      left: 65px;
       &::before {
         // right: 140px;
         right: 158px;
       }
     }
     &#nightstick2 {
-      right: 110px;
-      right: 70px;
+      right: 65px;
       &::before {
         // left: 140px;
         left: 158px;
@@ -235,12 +232,12 @@ body {
   // bottom: 245px;
   top: 635px;
   // width: 184px;
-  width: 200px;
+  width: 210px;
 }
 
 .lshape {
   // border: 1px solid $border-color;
-  width: 120px;
+  width: 123px;
   height: 32px;
   border-radius: 0.75em;
   // bottom: 201px;
@@ -295,17 +292,12 @@ body {
     left: -32px;
   }
   .inner {
-    // height: 52px;
     height: 122px;
     width: 80px;
-    // width: 64%;
     position: absolute;
     left: 22%;
-    left: 23%;
     top: 99%;
     border-radius: 12px;
-    // border-bottom-left-radius: 0;
-    // border-top-right-radius: 0;
     border-radius: 12px 0;
     border: 3px solid $border-color;
     border-bottom: 0;
