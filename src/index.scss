@@ -54,8 +54,8 @@ body {
 .board {
   width: 60%;
   min-width: 1252px;
-  height: 100%;
-  margin: auto;
+  height: 99%;
+  margin: 4px auto;
   border-radius: 1.25em;
   border-radius: 2em;
   box-sizing: border-box;
@@ -74,7 +74,8 @@ body {
   position: absolute;
   border: 3px solid $border-color;
   &.square {
-    top: 72px;
+    // top: 72px;
+    top: 7.9%;
     // height: 54px;
     height: 56px;
     border-radius: 1em;
@@ -91,9 +92,10 @@ body {
     height: 32px;
     border-radius: 0.75em;
     &.sm {
-      width: 130px;
+      // width: 130px;
       width: 180px;
       top: 192px;
+      top: 21.05%;
     }
   }
   &.table {
@@ -117,7 +119,8 @@ body {
     width: 150px;
     border-radius: 12px;
     position: absolute;
-    bottom: 158px;
+    // bottom: 158px;
+    top: 722px;
     &#bump1 {
       left: 0px;
       border-left: 4px solid #000;
@@ -135,7 +138,8 @@ body {
     height: 32px;
     border-radius: 12px;
     position: absolute;
-    bottom: 65px;
+    // bottom: 65px;
+    top: 815px;
     &::before {
       content: "";
       display: block;
@@ -227,10 +231,10 @@ body {
 
 #line5,
 #line6 {
-  bottom: 234px;
-  bottom: 245px;
-  top: unset;
-  width: 184px;
+  // bottom: 234px;
+  // bottom: 245px;
+  top: 635px;
+  // width: 184px;
   width: 200px;
 }
 
@@ -239,7 +243,8 @@ body {
   width: 120px;
   height: 32px;
   border-radius: 0.75em;
-  bottom: 201px;
+  // bottom: 201px;
+  top: 679px;
   transform: rotate(90deg);
   &::before {
     content: "";
@@ -484,13 +489,13 @@ body {
   width: $pac-dimensions;
   height: $pac-dimensions;
   border-radius: 50%;
-  background: #f2d648;
+  background-color: #f2d648;
   position: relative;
   top: 0px;
   z-index: 2001;
-  box-shadow: -5px -2px 9px 9px inset #e2ba07, 0px 0px 20px 18px inset #f0d664,
-    0px 0px 24px 24px inset #fff;
-
+  // box-shadow: -5px -2px 9px 9px inset #e2ba07, 0px 0px 20px 18px inset #f0d664,
+  //   0px 0px 24px 24px inset #fff;
+  background: radial-gradient(circle at 30% 30%, #ffff00, #dd8107c4);
   &.left {
     transform: rotateY(180deg);
   }
