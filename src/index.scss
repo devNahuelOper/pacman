@@ -7,8 +7,10 @@ $pac-color: #f2d648;
 $pac-dimensions: 40;
 $table23Lat: 23%;
 $table23Lon: 240px;
-$line34: 24%;
-$line56: 26.5%;
+// $line34: 24%;
+$line34: 22.9%;
+// $line56: 26.5%;
+$line56: 25.5%;
 
 @font-face {
   font-family: "Press Start 2P";
@@ -33,6 +35,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 8px;
+  z-index: 2000;
   &.lg {
     font-size: 16px;
   }
@@ -76,20 +79,20 @@ body {
     height: 56px;
     border-radius: 1em;
     &.sm {
-      // width: 155px;
       width: 130px;
+      width: 180px;
     }
     &.md {
-      // width: 200px;
-      width: 180px;
+      width: 200px;
+      width: 212px;
     }
   }
   &.line {
     height: 32px;
     border-radius: 0.75em;
     &.sm {
-      // width: 155px;
       width: 130px;
+      width: 180px;
       top: 192px;
     }
   }
@@ -148,14 +151,16 @@ body {
       left: 110px;
       left: 70px;
       &::before {
-        right: 140px;
+        // right: 140px;
+        right: 158px;
       }
     }
     &#nightstick2 {
       right: 110px;
       right: 70px;
       &::before {
-        left: 140px;
+        // left: 140px;
+        left: 158px;
       }
     }
   }
@@ -174,24 +179,24 @@ body {
 
 #square1,
 #line1 {
-  // left: 5.5%;
   left: 9%;
+  left: 5.5%;
 }
 
 #square2 {
-  // left: 25.58%;
   left: 26.5%;
+  left: 25.5%;
 }
 
 #square3 {
-  // right: 320px;
   right: 26.5%;
+  right: 25.5%;
 }
 
 #square4,
 #line2 {
-  // right: 5.5%;
   right: 9%;
+  right: 5.5%;
 }
 
 #line3 {
@@ -234,7 +239,7 @@ body {
   width: 120px;
   height: 32px;
   border-radius: 0.75em;
-  bottom: 200px;
+  bottom: 201px;
   transform: rotate(90deg);
   &::before {
     content: "";
@@ -315,10 +320,10 @@ body {
 }
 
 #cage {
-  width: 316px;
-  height: 121px;
-  top: 371px;
-  left: calc(50% - 158px);
+  width: 382px;
+  height: 126px;
+  top: 370px;
+  left: calc(50% - 191px);
   border: 2px solid $border-color;
   &::before {
     content: "";
@@ -482,7 +487,10 @@ body {
   background: #f2d648;
   position: relative;
   top: 0px;
-  /* margin: 1em; */
+  z-index: 2001;
+  box-shadow: -5px -2px 9px 9px inset #e2ba07, 0px 0px 20px 18px inset #f0d664,
+    0px 0px 24px 24px inset #fff;
+
   &.left {
     transform: rotateY(180deg);
   }
@@ -505,6 +513,7 @@ body {
   right: 33.33%;
   border-radius: 50%;
   background: #333333;
+  // box-shadow: 0px -1px 2px 2px inset #333333, 0px 0px 1px 2px inset #ffffff;
 }
 
 .mouth {
