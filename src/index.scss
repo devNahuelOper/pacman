@@ -1,14 +1,15 @@
 @import "./styles/base.scss";
 @import "./styles/sides.scss";
 @import "./styles/tables.scss";
+@import "./styles/pills.scss";
 
 $border-color: #3600ff;
 $pac-color: #f2d648;
 $pac-dimensions: 40;
 $table23Lat: 23%;
 $table23Lon: 240px;
-// $line34: 24%;
 $line34: 22.9%;
+$line34: 22.3%;
 // $line56: 26.5%;
 $line56: 25.5%;
 
@@ -89,7 +90,7 @@ body {
     }
   }
   &.line {
-    height: 36px;
+    height: 38px;
     border-radius: 0.75em;
     &.sm {
       // width: 130px;
@@ -103,10 +104,10 @@ body {
       0% 0%,
       100% 0%,
       100% 29%,
-      57% 29%,
-      57% 100%,
-      41% 100%,
-      41% 29%,
+      56% 29%,
+      56% 100%,
+      43% 100%,
+      43% 29%,
       0% 29%
     );
   }
@@ -220,9 +221,11 @@ body {
 #line3,
 #line4 {
   transform: rotate(90deg);
-  top: 497px;
-  width: 115px;
-  height: 50px;
+  top: 496px;
+  // width: 115px;
+  width: 130px;
+  // height: 50px;
+  height: 46px;
   border-radius: 1em;
 }
 
@@ -483,7 +486,8 @@ body {
   border-radius: 50%;
   background-color: #f2d648;
   position: relative;
-  top: 0px;
+  top: 660px;
+  left: 580px;
   z-index: 2001;
   // box-shadow: -5px -2px 9px 9px inset #e2ba07, 0px 0px 20px 18px inset #f0d664,
   //   0px 0px 24px 24px inset #fff;
