@@ -40,7 +40,7 @@ function moveUp(currMove) {
   const { x: pacX, y: pacY } = pacman.getBoundingClientRect();
   // const closest = document.elementFromPoint(pacX + 20, pacY - 15);
   // const keepMoving = !closest.classList.contains("wall");
-  const keepMoving = noWallClose(pacX, pacY - 15) && !isAtSide(pacX + 1, pacY);
+  const keepMoving = noWallClose(pacX, pacY - 10) && !isAtSide(pacX + 1, pacY);
   if (pacman.offsetTop > 16 && keepMoving) {
     pacman.style.top = +pacman.style.top.replace("px", "") - step + "px";
   } else {
@@ -53,7 +53,7 @@ function moveUp(currMove) {
 function moveDown(currMove) {
   let inProgress = true;
   const { x: pacX, bottom: pacY } = pacman.getBoundingClientRect();
-  const bottomEdge = board.clientHeight - pacman.clientHeight - 6;
+  const bottomEdge = board.clientHeight - pacman.clientHeight - 7;
   // const closest = document.elementFromPoint(pacX, pacY + 15);
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving = noWallClose(pacX, pacY + 10);
