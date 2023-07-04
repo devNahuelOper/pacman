@@ -3,9 +3,15 @@ const board = document.querySelector(".board");
 const [side1, side2, side3] = document.getElementsByClassName("side");
 const step = 10;
 
+const rect = () => {
+  const { x, y, right, bottom } = pacman.getBoundingClientRect();
+  return { x, y, right, bottom };
+};
+window.rect = rect;
+
 function noWallClose(x, y, type = "vertical") {
   const indexes = Array.from(
-    Array(Math.round(pacman.clientWidth * 0.5)),
+    Array(Math.round(pacman.clientWidth / 2)),
     (n, idx) => idx
   );
   const match = indexes.find((idx) => {
@@ -40,7 +46,10 @@ function moveUp(currMove) {
   const { x: pacX, y: pacY } = pacman.getBoundingClientRect();
   // const closest = document.elementFromPoint(pacX + 20, pacY - 15);
   // const keepMoving = !closest.classList.contains("wall");
-  const keepMoving = noWallClose(pacX, pacY - 10) && !isAtSide(pacX + 1, pacY);
+  const keepMoving =
+    noWallClose(pacX, pacY - 10) &&
+    noWallClose(pacX + 20, pacY - 10) &&
+    !isAtSide(pacX + 1, pacY);
   if (pacman.offsetTop > 16 && keepMoving) {
     pacman.style.top = +pacman.style.top.replace("px", "") - step + "px";
   } else {
@@ -56,7 +65,8 @@ function moveDown(currMove) {
   const bottomEdge = board.clientHeight - pacman.clientHeight - 7;
   // const closest = document.elementFromPoint(pacX, pacY + 15);
   // const keepMoving = !closest.classList.contains("wall");
-  const keepMoving = noWallClose(pacX, pacY + 10);
+  const keepMoving =
+    noWallClose(pacX, pacY + 10) && noWallClose(pacX + 18, pacY + 10);
   if (pacman.offsetTop < bottomEdge && keepMoving) {
     pacman.style.top = +pacman.style.top.replace("px", "") + step + "px";
   } else {
