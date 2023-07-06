@@ -8,8 +8,8 @@ $pac-color: #f2d648;
 $pac-dimensions: 40;
 $table23Lat: 23%;
 $table23Lon: 240px;
-$line34: 22.9%;
-$line34: 22.3%;
+// $line34: 22.9%;
+$line34: 22.2%;
 // $line56: 26.5%;
 $line56: 25.5%;
 
@@ -75,10 +75,10 @@ body {
   position: absolute;
   border: 3px solid $border-color;
   &.square {
-    // top: 72px;
     top: 7.9%;
-    // height: 54px;
+    // top: 7%;
     height: 56px;
+    // height: 74px;
     border-radius: 1em;
     &.sm {
       width: 130px;
@@ -491,7 +491,7 @@ body {
   z-index: 2001;
   // box-shadow: -5px -2px 9px 9px inset #e2ba07, 0px 0px 20px 18px inset #f0d664,
   //   0px 0px 24px 24px inset #fff;
-  background: radial-gradient(circle at 30% 30%, #ffff00, #dd8107c4);
+  background: radial-gradient(circle at 30% 30%, #ffff00, #dd8107);
   &.left {
     transform: rotateY(180deg);
   }
