@@ -1,5 +1,6 @@
 import { moveUp, moveDown, moveLeft, moveRight } from "./js/move.js";
 import { shuffle } from "./js/util";
+import addPills from "./js/pill.js";
 
 document.addEventListener("DOMContentLoaded", ready);
 window.point = (x, y) => document.elementFromPoint(x, y);
@@ -10,7 +11,8 @@ function ready() {
   const pacman = document.querySelector(".pacman");
   const board = document.querySelector(".board");
   const ruler = document.getElementById("ruler");
-
+  addPills();
+  
   if (ruler) {
     ruler.onpointerdown = (e) => {
       if (e.button) {
