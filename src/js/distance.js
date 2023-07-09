@@ -1,4 +1,5 @@
 const pacman = getElementById("pacman");
+const board = document.getElementById("board");
 
 let wallCoords = [...document.getElementsByClassName("wall")].map((wall) => {
   const { left, right, top, bottom } = wall.getBoundingClientRect();
@@ -33,6 +34,17 @@ function getClosestLeft() {
     ({ coords: { right, top, bottom } }) =>
       right < pacLeft && top < pacBottom && bottom > pacTop
   );
+  if (!inRange?.length) {
+    const {
+      left: boardLeft,
+      right,
+      top,
+      bottom,
+    } = board.getBoundingClientRect();
+    const distance = pacLeft - (boardLeft + 30);
+    const coords = { left: boardLeft, right, top, bottom };
+    return { id: "boardLeft", coords, distance };
+  }
   const [closest] = inRange.sort(
     (a, b) =>
       Math.abs(a.coords.right - pacLeft) - Math.abs(b.coords.right - pacLeft)
@@ -50,6 +62,17 @@ function getClosestRight() {
     ({ coords: { left, top, bottom } }) =>
       left > pacRight && top < pacBottom && bottom > pacTop
   );
+  if (!inRange?.length) {
+    const {
+      left,
+      right: boardRight,
+      top,
+      bottom,
+    } = board.getBoundingClientRect();
+    const distance = boardRight - 30 - pacRight;
+    const coords = { left, right: boardRight, top, bottom };
+    return { id: "boardRight", coords, distance };
+  }
   const [closest] = inRange.sort(
     (a, b) =>
       Math.abs(a.coords.left - pacRight) - Math.abs(b.coords.left - pacRight)
