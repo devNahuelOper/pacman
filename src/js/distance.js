@@ -1,4 +1,4 @@
-const pacman = getElementById("pacman");
+const pacman = document.getElementById("pacman");
 const board = document.getElementById("board");
 
 let wallCoords = [...document.getElementsByClassName("wall")].map((wall) => {
@@ -6,20 +6,64 @@ let wallCoords = [...document.getElementsByClassName("wall")].map((wall) => {
   return { id: wall.id, coords: { left, right, top, bottom } };
 });
 
-const tableCoords = [...document.querySelectorAll(".table.upright")].map(
-  (table) => {
-    const { left, top, bottom, width } = table.getBoundingClientRect();
+const tableCoordsUpright = [...document.getElementsByClassName("table upright")]
+  .map((table) => {
+    const { left, right, top, bottom, width } = table.getBoundingClientRect();
+    const before = {
+      id: `${table.id}::before`,
+      coords: { left, right, top, bottom: top + 32 },
+    };
+
     const altLeft = left + width / 2 - 24;
     const altRight = altLeft + 48;
-    return {
+    const altTop = top + 32;
+    const after = {
       id: `${table.id}::after`,
-      coords: { left: altLeft, right: altRight, top, bottom },
+      coords: { left: altLeft, right: altRight, top: altTop, bottom },
     };
+    return [before, after];
+  })
+  .flat();
+
+const tableCoordsOnside = [
+  ...document.getElementsByClassName("table onside"),
+].map((table) => {
+  const { left, right, top, bottom, height } = table.getBoundingClientRect();
+  const altTop = top + height / 2 - 18;
+  const altBottom = altTop + 36;
+  if (table.id.match(2)) {
+    const altRight = left + 47;
+    const before = {
+      id: `${table.id}::before`,
+      coords: { left, right: altRight, top, bottom },
+    };
+    const after = {
+      id: `${table.id}::after`,
+      coords: { left: altRight, right, top: altTop, bottom: altBottom },
+    };
+    return [before, after];
+  } else {
+    const altLeft = right - 47;
+    const before = {
+      id: `${table.id}::before`,
+      coords: { left: altLeft, right, top, bottom },
+    };
+    const after = {
+      id: `${table.id}::after`,
+      coords: { left, right: altLeft, top: altTop, bottom: altBottom }
+    };
+    return [before, after];
   }
-);
+}).flat();
+
+const tableCoords = [
+  ...tableCoordsUpright.slice(0, 2),
+  ...tableCoordsOnside,
+  ...tableCoordsUpright.slice(2),
+];
 
 wallCoords = [
-  ...wallCoords.slice(0, 16),
+  ...wallCoords.slice(0, 11),
   ...tableCoords,
   ...wallCoords.slice(16),
 ];
@@ -79,3 +123,5 @@ function getClosestRight() {
   );
   return { ...closest, distance: closest.coords.left - pacRight };
 }
+
+export { getClosestLeft, getClosestRight };
