@@ -1,3 +1,7 @@
+import { getClosestLeft, getClosestRight } from "./distance";
+window.getClosestLeft = getClosestLeft;
+window.getClosestRight = getClosestRight;
+
 const pacman = document.querySelector(".pacman");
 const board = document.querySelector(".board");
 const [side1, side2, side3] = document.getElementsByClassName("side");
