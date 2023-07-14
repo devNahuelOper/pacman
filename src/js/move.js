@@ -5,7 +5,7 @@ window.getClosestRight = getClosestRight;
 const pacman = document.querySelector(".pacman");
 const board = document.querySelector(".board");
 const [side1, side2, side3] = document.getElementsByClassName("side");
-const step = 10;
+const step = 5;
 
 const rect = () => {
   const { x, y, right, bottom } = pacman.getBoundingClientRect();
@@ -15,7 +15,7 @@ window.rect = rect;
 
 function noWallClose(x, y, type = "vertical") {
   const indexes = Array.from(
-    Array(Math.round(pacman.clientWidth / 2)),
+    Array(Math.round(pacman.clientWidth / (20 / step))),
     (n, idx) => idx
   );
   const match = indexes.find((idx) => {
@@ -92,7 +92,7 @@ function moveLeft(currMove) {
   // const closest = document.elementFromPoint(pacX - 28, pacY - 2);
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving =
-    noWallClose(pacX - 18, pacY - 2) &&
+    noWallClose(pacX - 18, pacY - step / 5) &&
     noWallClose(pacX - 18, pacBottom - 4) &&
     noWallClose(pacX - 18, pacY + pacman.clientHeight / 2);
   if ((pacX > leftEdge && keepMoving) || isAtSide(pacX - step, pacY)) {
@@ -102,6 +102,8 @@ function moveLeft(currMove) {
       pacman.style.left = "1230px";
     }
   } else {
+    const { distance } = getClosestLeft();
+    console.log("closestLeft: ", distance);
     cancelAnimationFrame(currMove);
     inProgress = false;
   }
@@ -120,7 +122,7 @@ function moveRight(currMove) {
   // const closest = document.elementFromPoint(pacRight + 28, pacY - 2);
   // const keepMoving = !closest.classList.contains("wall");
   const keepMoving =
-    noWallClose(pacRight, pacY - 2) &&
+    noWallClose(pacRight, pacY - step / 5) &&
     noWallClose(pacRight, pacBottom - 4) &&
     noWallClose(pacRight, pacY + pacman.clientHeight / 2);
   if ((pacRight < rightEdge && keepMoving) || isAtSide(pacX + step, pacY)) {
@@ -129,6 +131,8 @@ function moveRight(currMove) {
       pacman.style.left = "-90px";
     }
   } else {
+    const { distance } = getClosestRight();
+    console.log("closestRight: ", distance);
     cancelAnimationFrame(currMove);
     inProgress = false;
   }
