@@ -24,8 +24,19 @@ function addPills() {
   const row3Right = makePillWrap(5, "horizontal", "row3Right");
   const column1 = makePillWrap(5, "vertical", "column1");
   const column6 = makePillWrap(5, "vertical", "column6");
-  board.append(row1Left, row1Right, row2Left, row2Right, row3Left, row3Right, column1, column6);
+
+  const row8 = makePillWrap(24, "horizontal", "row8");
+  board.append(
+    row1Left,
+    row1Right,
+    row2Left,
+    row2Right,
+    row3Left,
+    row3Right,
+    row8,
+    column1,
+    column6
+  );
 }
 
 export default addPills;
-
