@@ -23,6 +23,8 @@ function addPills() {
   const row3Left = makePillWrap(5, "horizontal", "row3Left");
   const row3Right = makePillWrap(5, "horizontal", "row3Right");
   const column1 = makePillWrap(5, "vertical", "column1");
+  const column2 = makePillWrap(13, "vertical", "column2");
+  const column5 = makePillWrap(13, "vertical", "column5");
   const column6 = makePillWrap(5, "vertical", "column6");
 
   const row8 = makePillWrap(24, "horizontal", "row8");
@@ -35,6 +37,8 @@ function addPills() {
     row3Right,
     row8,
     column1,
+    column2,
+    column5,
     column6
   );
 }

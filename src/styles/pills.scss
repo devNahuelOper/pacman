@@ -29,6 +29,9 @@
   &#row1Right,
   &#row2Right {
     right: 80px;
+    .pill5 {
+      left: 4px;
+    }
   }
   &.row3 {
     top: 248px;
@@ -39,6 +42,9 @@
   }
   &#row3Right {
     right: 80px;
+    .pill0 {
+      left: 4px;
+    }
   }
   &.column1,
   &.column6 {
@@ -58,6 +64,25 @@
   }
   &.column1 {
     left: 30px;
+  }
+  &.column2, &.column5 {
+    left: 274px;
+    min-height: 720px;
+    top: 90px;
+    min-height: 695px;
+    .pill1 {
+      visibility: hidden;
+    }
+    .pill3 {
+      top: 30px;
+    }
+    .pill4 {
+      top: 15px;
+    }
+  }
+  &.column5 {
+    left: unset;
+    right: 270px;
   }
   &.column6 {
     right: 30px;
